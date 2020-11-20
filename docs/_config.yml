@@ -7,19 +7,18 @@ highlighter: rouge
 markdown: kramdown
 disqus: Selim Akpınar
 google_analytics: Selim Akpınar
-title: Share&Connect2
+title: Selim Akpınar
 
 defaults:
   -
     scope:
       path: "" # empty string for all files
     values:
-      title: Selim Akpınar
+      title: Share & Connect
 
 description: Blog of some Hacker!
 author:
   name: Selim Akpınar
-  email: mandev@mail.htb
   github: mandev0
   twitter: _mandev
   bio: No!
