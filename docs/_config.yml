@@ -7,14 +7,14 @@ highlighter: rouge
 markdown: kramdown
 disqus: Selim Akpınar
 google_analytics: Selim Akpınar
-title: Share&Connect
+title: Share&Connect2
 
 defaults:
   -
     scope:
       path: "" # empty string for all files
     values:
-      title: Share&Connect
+      title: Selim Akpınar
 
 description: Blog of some Hacker!
 author:
