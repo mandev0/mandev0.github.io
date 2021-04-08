@@ -3,6 +3,8 @@ table {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 th, td {
@@ -18,8 +20,8 @@ th {
   color: white;
 }
 .mt{
-  margin-top: 5px;
+  margin-top: 30px;
 }
 .mb{
-  margin-bottom: 5px;
+  margin-bottom: 30px;
 }
