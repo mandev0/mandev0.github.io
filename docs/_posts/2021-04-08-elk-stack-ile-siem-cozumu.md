@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ELK Stack ile SIEM Çözümü
+title: ELK Stack ile SIEM Lab Ortamı | Bölüm 1
 excerpt: "ELK Stack, Suricate, Sophos XG ile ücretsiz/açık kaynaklı güvenlik çözümleri"
 comments: true
 ---
