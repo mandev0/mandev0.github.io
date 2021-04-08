@@ -8,7 +8,7 @@ Uzun zamandır yapmayı planladığım ama bir türlü başlayamadığım yazı 
 
 Uzun uğraşlar ve bir çok kurup silmeler, optimum çözüm arayışları sonucu aşağıdaki lab ortamını planlayıp kurmaya başladım. Kurulum adımlarına bir sonraki yazımda yer vereceğim. Bu yazıda daha çok tercihlerimi ve yapıyı neden bu şekilde kuruduğumu anlatmak istiyorum böylece varsa hatalarım daha anlaşılır olacaktır :)  
 
-<div style="text-align:center"><img src="/img/SIEM_Lab_Diagram.png" /></div>  
+<div class="mb mt" style="text-align:center"><img src="/img/SIEM_Lab_Diagram.png" /></div>  
 
 Burada üç network bölümümüz var. Bu alanları Sophos XG Home versiyonu üzerinde oluşturdum. Yapı optimum olmayabilir. İslevsellik olarak DMZ alanı dışarı açık alanı temsim ediyor. ServerZone ile arasındaki fark SZ' nin dışarıya açık olmaması (Bu ortamı kendi evimde kurduğum için aslında hiçbir network dışarı açık değil ama senaryolarımı ona göre şekillendireceğim). Networklerin erişim izinlerini aşağıdaki gibi ayarladım.    
 
@@ -20,7 +20,7 @@ Burada üç network bölümümüz var. Bu alanları Sophos XG Home versiyonu üz
 
 Network ile ilgili son olarak Suricate ve Logstash ile ilgili iki durum mevcut. Suricata sunucusunun DMZ alanını dinlemesi gerekli (yada bütün ağı) bunun için ikinci bir bacak oluşturdum ve ev tipi 8 portluk tp-link akıllı switch ile bütün trafiği o network bacağına yönlendirdim. Logstash ile ilgilide benzer bir durum söz konusu. DMZ alanından gelecek logların ELK Stack sunucusuna aktarılması gerekiyor. Bu işlemi direkt olarak ELK sunucusuna gönderecek şekilde yapabiliriz ama ben DMZ alanının direkt olarak ELK sunucusuna erişmesini istemedim. Bu nedenle (ve geleceğe dönük tavsiye edilen yapıda) logları Logstash servisine gönderecek şekilde planladım ve bu servisi ayrı bir sunucuda çalıştırdım. Aslında burada Logstash sunucusu üzerinde tek bir bacak ile işi çözebilirdim ancak daha iyi ayrım oluşturmak açısından bir bacak ServerZone diğer bacak DMZ alanında olacak şekilde iki bacaklı bir sunucu yapısı oluşturdum. Bu anlatıma dair diagram aşağıdaki gibi.  
 
-<div style="text-align:center"><img src="/img/ServerZone_Diagram.png" /></div>  
+<div class="mb mt" style="text-align:center"><img src="/img/ServerZone_Diagram.png" /></div>  
 
 Şimdi biraz çalışacak servislerden bahsedelim. Öncelikle SIEM(ish) çözümümüz ELK Stack. Açık kaynak kodlu bir araç ve log yönetimi açısından oldukça başarılı ve içerisinde hazır gelen alarm imzaları ile antreman için oldukça yeterli. Bu araç yerince Splunk kurmayıda planladım ve bir kaç denemede yaptım ancak ücretsiz sürümü için kısıtlamalar ve kota(günlük 500MB) olması beni ELK Stack denemeye itti. İleride Splunk ile ELK Stack aracını alarmlar konusunda karşılaştıracağım bir yazı daha planlıyorum onun için Splunk planlarımda var.  
 
