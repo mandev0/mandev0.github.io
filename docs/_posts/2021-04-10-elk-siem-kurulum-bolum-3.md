@@ -25,7 +25,7 @@ HOME_NET: "[10.10.0.0/16]"
 # 'tls-log' altında aşağıdaki değerleri gösterildiği şekilde değiştirelim. Bu şekilde loglarda TLS SNI bilgileri gösterilecek
 enabled: yes      # Log TLS connections.
 custom: yes       # enabled the custom logging format (defined by customformat)
-customformat: "%{%D-%H:%M:%S}t.%z %a:%p -> %A:%P %v %n %d %D"
+customformat: # Bu kısım varsayılan ayarları ile kalabilir. Github sisteminde hata çıkardığı için bu kısmı sildim
 
 # Dinleme yapılan ağ arayüzünü değiştirelim
 # 'af-packet' altında aşağıdaki değeri belirleyelim.
