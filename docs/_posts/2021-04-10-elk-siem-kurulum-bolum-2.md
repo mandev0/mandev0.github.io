@@ -193,11 +193,11 @@ output {
 Bütün bu işlemlerimizin ardından adres çubuğuna http://{ELKIPAdresi}:5601 yazdığımız zaman bizi Kibana servisinin karşılaması gerekir. Eğer buraya kadar geldiysek bu kısımda ELK sunucumuzu kapatık temiz bir snapshot almanın tam zamanıdır. Bu kısımda sadece tek bir makine için logları toplamaya başlayacağız. Geri kalan sistemler için yapıyı bir sonraki yazıda anlatacağım.  
 
 ### İlk Loglar
-<div class="mb mt images-sizing" style="text-align:center"><img src="/img/kibana/kibana_1.png" /></div>  
+<div class="mb mt images-sizing" style="text-align:center"><img src="/img/siem_lab_kurulumu/kibana_1.png" /></div>  
 
 İlk giriş yaptığımızda bizi bu şekilde bir sayfa karşılayacak ve buradan "Add data" butonuna basarak ilk ajanımızın kurulumunu gerçekleştireceğiz. Bu ajanın kurulumu için DMZ bölgesine kurduğum temiz bir Debian 10 makinemi kullanacağım. Bu bizim hedef makinelerimizden biri olacak.  
 
-<div class="mb mt images-sizing" style="text-align:center"><img src="/img/kibana/kibana_2.png" /></div>  
+<div class="mb mt images-sizing" style="text-align:center"><img src="/img/siem_lab_kurulumu/kibana_2.png" /></div>  
 
 Ardından "Security" altında "Auditbeat" ajanını seçiyoruz. Bu seçenek bize ne yapmamızı oldukça açıklayıcı bir biçimde sonraki sayfada anlatıyor. Tek fark bizim elasticsearch yerine logstash kullanacak olmamız. Ben debian kullandığım için DEB paketini seçiyorum.  
 
@@ -230,14 +230,14 @@ curl --user elastic:{PASS} -XPUT -H 'Content-Type: application/json' https://loc
 
 Bu işlemlerin ardından verileri ELK servisine geliyor olması lazım. Artık tek eksik bir Index Pattern eklemek kalıyor. Bunun için Kibana içerisinde sol menüden "Stack Management" ardından "Index Pattern" seçilir. "Create Index Pattern" butonuna basılır ve aşağıda gösterildiği gibi "auditbeat-*" indexi eklenir.  
 
-<div class="mb mt images-sizing" style="text-align:center"><img src="/img/kibana/kibana_3.png" /></div>  
+<div class="mb mt images-sizing" style="text-align:center"><img src="/img/siem_lab_kurulumu/kibana_3.png" /></div>  
 
 İkinci adımda "@timestamp" seçilir ve index oluşturulur.  
 
-<div class="mb mt images-sizing" style="text-align:center"><img src="/img/kibana/kibana_4.png" /></div>  
+<div class="mb mt images-sizing" style="text-align:center"><img src="/img/siem_lab_kurulumu/kibana_4.png" /></div>  
 
 Bu işlemin ardından artık linux sisteme ait logları sol menüden "Security" -> "Overview" altından görüntüleyebilirsiniz.
 
-<div class="mb mt images-sizing" style="text-align:center"><img src="/img/kibana/kibana_5.png" /></div>  
+<div class="mb mt images-sizing" style="text-align:center"><img src="/img/siem_lab_kurulumu/kibana_5.png" /></div>  
 
 Bu yazınında sonuna gelmiş bulunuyoruz. Oldukça uzun bir yazı oldu ve artık senoryalarımızı çalıştırmaya biraz daha yaklaşmış bulunuyoruz. Bundan sonraki yazımda Suricata kurulumu ve geri kalan sistemlerin loglarını ELK servisine aktarıyor olacağız. Bir sonraki yazıda görüşmek üzere :)
