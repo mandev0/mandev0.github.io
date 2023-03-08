@@ -26,4 +26,4 @@ Sonrasında masaüstünde wireshark ile trafiği dinlemeye başladım ve ZTE rou
 
 <div class="mb mt images-sizing" style="text-align:center"><img src="/img/uberonline_router/uberonline-pppoe.png" /></div>  
 
-Bu bilgileri kendi router cihazımda kullandım ve ek hiçbir ayar gerekmeden überonline firmasının verdiğim ZTE router cihazını aradan çıkarmış oldum. Artık bütün network altyapımı eskisi gibi fazla cihaz olmadan kurabilir hale geldim.  
+Bu bilgileri kendi router cihazımda kullandım ve ek hiçbir ayar gerekmeden überonline firmasının verdiği ZTE router cihazını aradan çıkarmış oldum. Artık bütün network altyapımı eskisi gibi fazla cihaz olmadan kurabilir hale geldim.  
