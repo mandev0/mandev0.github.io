@@ -4,7 +4,7 @@ title: ELK Security ile Ev Yapımı Sandbox
 excerpt: "Lokalde çalıştırabileceğimiz tamamen sizin kontrolünüzde bir sandbox çözümü"
 comments: true
 ---
-Bir süredir aklımda olan ve Vedat ile ara ara konuştuğumuz bir konu vardı oda sandbox sistemleri. Aslında lokalde kullanılabilen bir sandbox sistemi. Neden böyle bir kurulum ihtiyaç duydum derseniz... yani neden olmasın :D
+Bir süredir aklımda olan ve [Vedat](https://twitter.com/vbora0) ile ara ara konuştuğumuz bir konu vardı oda sandbox sistemleri. Aslında lokalde kullanılabilen bir sandbox sistemi. Neden böyle bir kurulum ihtiyaç duydum derseniz... yani neden olmasın :D
 
 Ancak konuya giriş yapmadan önce belirtmem gerek. Bu tamamen teknik dolu bir yazı olmayacak daha doğrusu adım adım takip edebileceğiniz bir kurulum yazısı olmayacak. Daha çok genel hatları ile biraz bilen birine anlattığım seviyede bir yazı olacak. Belki ileride bu yazıyı parçalara bölüp tam bir anlatım yapabilirim. :) Şimdilik böyle başlayalım.
 
@@ -42,7 +42,9 @@ Kurulumu tamamladığınızda aşağıdaki script için gerekli komutu kendi ort
 
 Şimdi bütün parçaları hazırladık ve birleştirmeye hazırız. Kısa bir özet geçelim tekrar. Bir adet sandbox ortamımız var ve bu ortamı biz network tarafında izole ettik. Burası güzel. Bir malware çalıştırdığımız zaman gerekli logları toplamak ve görselleştirmek içinde ELK kurdum ve ayarladık. Şimdi geriye sandbox makinemizi her açıldığında tekrar ayarlamaya yarayacak konfig dosyamızı yazmaya. Bu kısımda [şu](https://github.com/rcybersec/windowssandbox) arkadaşın hazırladığı konfigden bolca ilham aldım diyebilirim ama bolca :D. Ancak temelde basit tuttum. Arkadaş başka araçlarda yüklüyordu onları iptal ettim vs.
 
-Temelde iki dosyamız mevcut. Biri konfig dosyası diğeri ise scriptimiz. Sırasıyla içerikleri aşağıda mevcut. Yorumları ve açıklamaları yanında yapıtım okuması daha kolay olması için
+Temelde iki dosyamız mevcut. Biri konfig dosyası diğeri ise scriptimiz. Sırasıyla içerikleri aşağıda mevcut. Yorumları ve açıklamaları yanına yazdım okuması daha kolay olması için  
+  
+Script dosyamız,
 ```powershell
 ### Başlangıçta çalıştırılan script (sandbox-init.cmd)
 
@@ -58,7 +60,8 @@ powershell.exe -command "Copy-Item "C:\Users\WDAGUtilityAccount\Work\WindowsSand
 # Elastic agentı yüklemek için gerekli komutumuz (Bu komut aslında hazır olarak geliyor. ELK ve sonrasında Fleet kurarsanız oradan direkt olarak size veriyor)
 powershell.exe -command "C:\Users\WDAGUtilityAccount\Desktop\elastic-agent\elastic-agent.exe install --url=https://10.1.50.11:8220 --enrollment-token=TF93TmQ0NEI4MmFSVnE1S0tnQUg6TmpzTVVaSFFUaWlFc2IyOW1YTU5HUQ== -f --insecure"
 ```
-
+  
+Konfig dosyamız,
 ```xml
 <!-- Konfig dosyamız. Bu dosyaya çift tıklayıp sandbox ortamını başlatıyoruz (sandbox-start.cmd) -->
 
@@ -96,4 +99,6 @@ Aynı zamanda bolca alert üretiyor sistem. Tabi eklemeyi unuttum. Bu alertlar b
 
 Gördüğünüz üzere dosya kaynıyor :D ancak bununla ilgili bir alarm oluşmuyor çünkü oluşan MD5 ya da SHA1 hashlerinin karşılaştırılacağı bir kaynak eklemedik. Maalesef bildiğim kadarıyla ELK ücretsiz olarak içerisinde bir CTI kaynağı ile gelmiyor o nedenle bizim eklememiz gerek ancak bu başka bir makale konusu.
 
-Günün sonunda bolca kan ve göz yaşı döktüğüm bir uğraşı oldu benim için. Bu haliyle özellikle zararlı web sitelerini ziyaret etmek için sık sık kullanabileceğim bir ortamım oldu. Buradaki CTI eksiğini hızlıca kapattığımda oldukça güzel çalışan bir sandbox ortamı kurmuş olacağız. Bunun için bir sonraki yazıda görüşmek üzere :)
+Günün sonunda bolca kan ve göz yaşı döktüğüm bir uğraşı oldu benim için. Bu haliyle özellikle zararlı web sitelerini ziyaret etmek için sık sık kullanabileceğim bir ortamım oldu. Buradaki CTI eksiğini hızlıca kapattığımda oldukça güzel çalışan bir sandbox ortamı kurmuş olacağız. 
+
+Son olarak bu sistemi çalışır hale getirene kadar bulduğum bütün güzel repoları salladığım Vedat'a beni çektiği için bir teşekkür. Birde adama bu sistemi çalıştırdığımda gece 1-2 gibi ekran görüntüsü atmıştım deli gibi :D Neyse lafı uzatmadan bir sonraki yazıda görüşmek üzere :)
