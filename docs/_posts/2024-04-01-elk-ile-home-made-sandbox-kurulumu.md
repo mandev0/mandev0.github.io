@@ -84,7 +84,7 @@ Konfig dosyamız,
 </Configuration>
 ```
 
-Peki bu kadar komut ve yazıdan sonra elimize ne mi geçti. İşte şu güzel ekran :heart_eyes:
+Peki bu kadar komut ve yazıdan sonra elimize ne mi geçti. İşte şu güzel ekran.
 
 <div class="mb mt images-sizing" style="text-align:center"><img src="/img/elk-security-sandbox/siem-1.png" /></div> 
 
